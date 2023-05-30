@@ -1,5 +1,8 @@
 #Utility helper script to run codespaces locally
 
+orgrepo="microsoft/vscode-remote-try-rust"
+repo=`basename $orgrepo`
+
 docker ps -a | grep -q csl && \
 sleep 2 \
 echo connecting to existing local codespace && \
@@ -7,8 +10,8 @@ docker exec -it --user vscode csl /bin/bash && exit
 
 echo creating codespaces local
 
-git clone https://github.com/microsoft/vscode-remote-try-rust
-devcontainer up --workspace-folder vscode-remote-try-rust
+ls $repo || git clone https://github.com/$orgrepo
+devcontainer up --workspace-folder $repo
 
 dc=`docker ps -q --latest`
 # docker ps --format json --filter 'Image=vsc*' | jq
