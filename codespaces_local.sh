@@ -1,8 +1,10 @@
 #Utility helper script to run codespaces locally
 
-orgrepo="microsoft/vscode-remote-try-rust"
+# orgrepo="microsoft/vscode-remote-try-rust"
+orgrepo="$1"
 repo=`basename $orgrepo`
-dotfiles="pault-tech/dotfiles.git"
+# dotfiles="pault-tech/dotfiles.git"
+dotfiles="$2"
 
 docker ps -a | grep -q csl && \
 sleep 2 \
@@ -21,7 +23,5 @@ docker rename $dc csl
 #TODO copy git key
 
 docker exec -it --user vscode csl /bin/bash -c "cd ~/ && git clone https://github.com/$dotfiles && dotfiles/setup.sh"
-
-docker exec -it --user vscode csl /bin/bash -c 'cd ~/ && git clone https://github.com/pault-tech/dotfiles-spacemacs.git && dotfiles-spacemacs/setup.sh'
 
 docker exec -it --user vscode csl /bin/bash
