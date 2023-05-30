@@ -2,6 +2,7 @@
 
 orgrepo="microsoft/vscode-remote-try-rust"
 repo=`basename $orgrepo`
+dotfiles="pault-tech/dotfiles.git"
 
 docker ps -a | grep -q csl && \
 sleep 2 \
@@ -19,7 +20,7 @@ docker rename $dc csl
 
 #TODO copy git key
 
-docker exec -it --user vscode csl /bin/bash -c 'cd ~/ && git clone https://github.com/pault-tech/dotfiles.git && dotfiles/setup.sh'
+docker exec -it --user vscode csl /bin/bash -c "cd ~/ && git clone https://github.com/$dotfiles && dotfiles/setup.sh"
 
 docker exec -it --user vscode csl /bin/bash -c 'cd ~/ && git clone https://github.com/pault-tech/dotfiles-spacemacs.git && dotfiles-spacemacs/setup.sh'
 
