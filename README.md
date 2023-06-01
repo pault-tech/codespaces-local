@@ -3,7 +3,7 @@ Utility helper script to run codespaces locally. Opens a shell (KISS/simple).
 
 usage:
 
-codespaces_local.sh <repo> <dotfiles>
+`codespaces_local.sh <repo> <dotfiles>`
 
 e.g.: codespaces_local.sh microsoft/vscode-remote-try-rust pault-tech/dotfiles.git
 
