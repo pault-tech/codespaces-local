@@ -1,4 +1,4 @@
-# codespaces_local
+# codespaces-local
 Utility helper script to run codespaces locally. Opens a shell (KISS/simple).
 
 usage:
