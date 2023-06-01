@@ -1,5 +1,5 @@
 # codespaces-local
-Utility helper script to run codespaces locally. Opens a shell (KISS/simple).
+Utility helper script to run devcontainers/codespaces locally. Opens a shell (KISS/simple).
 
 usage:
 
