@@ -14,6 +14,9 @@ docker exec -it --user vscode csl /bin/bash && exit
 echo creating codespaces local
 
 ls $repo || git clone https://github.com/$orgrepo
+
+#TODO: devcontainer templates apply -t ghcr.io/devcontainers/templates/ruby-rails-postgres:latest
+ls $repo/.devcontainer || echo missing $repo/.devcontainer use devcontainer templates apply. exiting... && exit
 devcontainer up --workspace-folder $repo
 
 dc=`docker ps -q --latest`
