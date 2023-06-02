@@ -26,5 +26,6 @@ docker rename $dc csl
 #TODO copy git key
 
 docker exec -it --user vscode csl /bin/bash -c "cd ~/ && git clone https://github.com/$dotfiles && dotfiles/setup.sh"
+# docker exec -it --user vscode csl /bin/bash -c "cd ~/ && curl -fsSL https://code-server.dev/install.sh | sh"
 
 docker exec -it --user vscode csl /bin/bash
