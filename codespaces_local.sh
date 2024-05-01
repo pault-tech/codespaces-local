@@ -29,3 +29,11 @@ docker exec -it --user vscode csl /bin/bash -c "cd ~/ && git clone https://githu
 # docker exec -it --user vscode csl /bin/bash -c "cd ~/ && curl -fsSL https://code-server.dev/install.sh | sh"
 
 docker exec -it --user vscode csl /bin/bash
+
+function install_devcontainer_cli {
+
+  sudo apt update
+  sudo apt install npm
+  sudo npm install -g @devcontainers/cli
+  
+}
