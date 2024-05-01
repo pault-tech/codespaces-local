@@ -32,6 +32,11 @@ docker exec -it --user vscode csl /bin/bash
 
 function install_devcontainer_cli {
 
+#option 1
+ curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
+  sudo apt-get install -y nodejs
+
+#option 2 
   sudo apt update
   sudo apt install npm -y
   sudo npm install -g @devcontainers/cli
