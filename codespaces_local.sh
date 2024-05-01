@@ -33,7 +33,7 @@ docker exec -it --user vscode csl /bin/bash
 function install_devcontainer_cli {
 
   sudo apt update
-  sudo apt install npm
+  sudo apt install npm -y
   sudo npm install -g @devcontainers/cli
   
 }
