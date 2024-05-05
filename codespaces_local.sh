@@ -38,8 +38,8 @@ function install_devcontainer_cli {
   sudo npm install -g @devcontainers/cli
 
 #option 2 
-  sudo apt update
-  sudo apt install npm -y
-  sudo npm install -g @devcontainers/cli
+  # sudo apt update
+  # sudo apt install npm -y
+  # sudo npm install -g @devcontainers/cli
   
 }
