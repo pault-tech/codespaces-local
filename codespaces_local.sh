@@ -35,6 +35,7 @@ function install_devcontainer_cli {
 #option 1
  curl -fsSL https://deb.nodesource.com/setup_21.x | sudo -E bash -
   sudo apt-get install -y nodejs
+  sudo npm install -g @devcontainers/cli
 
 #option 2 
   sudo apt update
