@@ -37,6 +37,9 @@ function install_devcontainer_cli {
   sudo apt-get install -y nodejs
   sudo npm install -g @devcontainers/cli
 
+cd /workspaces/
+codespaces-local/codespaces_local.sh pault-tech/devcontainer-ubuntu pault-tech/dotfiles.git    
+
 #option 2 
   # sudo apt update
   # sudo apt install npm -y
