@@ -1,5 +1,7 @@
 #Utility helper script to run codespaces locally
 
+type devcontainer || ( echo devcontainer cli not found exiting... && exit )
+
 # orgrepo="microsoft/vscode-remote-try-rust"
 orgrepo="$1"
 repo=`basename $orgrepo`
