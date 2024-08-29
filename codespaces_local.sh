@@ -31,3 +31,20 @@ docker exec -it --user vscode csl /bin/bash -c "cd ~/ && git clone https://githu
 # docker exec -it --user vscode csl /bin/bash -c "cd ~/ && curl -fsSL https://code-server.dev/install.sh | sh"
 
 docker exec -it --user vscode csl /bin/bash
+
+function install_devcontainer_cli {
+
+#option 1
+ curl -fsSL https://deb.nodesource.com/setup_21.x | sudo -E bash -
+  sudo apt-get install -y nodejs
+  sudo npm install -g @devcontainers/cli
+
+cd /workspaces/
+codespaces-local/codespaces_local.sh pault-tech/devcontainer-ubuntu pault-tech/dotfiles.git    
+
+#option 2 
+  # sudo apt update
+  # sudo apt install npm -y
+  # sudo npm install -g @devcontainers/cli
+  
+}
