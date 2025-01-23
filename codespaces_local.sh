@@ -62,4 +62,4 @@ codespaces-local/codespaces_local.sh pault-tech/devcontainer-ubuntu pault-tech/d
 
 
 #main
-devcontainer_up_docker_exec
+devcontainer_up_docker_exec $@
