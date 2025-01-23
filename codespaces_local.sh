@@ -1,5 +1,7 @@
 #Utility helper script to run codespaces locally
 
+function devcontainer_up_docker_exec {
+
 type devcontainer || ( echo devcontainer cli not found exiting... && exit )
 
 # orgrepo="microsoft/vscode-remote-try-rust"
@@ -8,10 +10,13 @@ repo=`basename $orgrepo`
 # dotfiles="pault-tech/dotfiles.git"
 dotfiles="$2"
 
+USERARG="--user vscode"
+USERARG="--user codespace"
+
 docker ps -a | grep -q csl && \
 sleep 2 \
 echo connecting to existing local codespace && \
-docker exec -it --user vscode csl /bin/bash && exit
+docker exec -it $USERARG csl /bin/bash && exit
 
 echo creating codespaces local
 
@@ -27,10 +32,15 @@ docker rename $dc csl
 
 #TODO copy git key
 
-docker exec -it --user vscode csl /bin/bash -c "cd ~/ && git clone https://github.com/$dotfiles && dotfiles/setup.sh"
-# docker exec -it --user vscode csl /bin/bash -c "cd ~/ && curl -fsSL https://code-server.dev/install.sh | sh"
+# TODO: set user arg dynamically
+# docker exec -it csl cat /etc/passwd | grep vscode && USERARG="--user vscode"
 
-docker exec -it --user vscode csl /bin/bash
+docker exec -it $USERARG csl /bin/bash -c "cd ~/ && git clone https://github.com/$dotfiles && dotfiles/setup.sh"
+# docker exec -it $USERARG csl /bin/bash -c "cd ~/ && curl -fsSL https://code-server.dev/install.sh | sh"
+
+docker exec -it $USERARG csl /bin/bash
+
+}
 
 function install_devcontainer_cli {
 
@@ -48,3 +58,8 @@ codespaces-local/codespaces_local.sh pault-tech/devcontainer-ubuntu pault-tech/d
   # sudo npm install -g @devcontainers/cli
   
 }
+
+
+
+#main
+devcontainer_up_docker_exec
