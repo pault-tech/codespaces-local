@@ -10,8 +10,8 @@ repo=`basename $orgrepo`
 # dotfiles="pault-tech/dotfiles.git"
 dotfiles="$2"
 
-USERARG="--user vscode"
 USERARG="--user codespace"
+USERARG="--user vscode"
 
 docker ps -a | grep -q csl && \
 sleep 2 \
@@ -35,7 +35,7 @@ docker rename $dc csl
 # TODO: set user arg dynamically
 # docker exec -it csl cat /etc/passwd | grep vscode && USERARG="--user vscode"
 
-docker exec -it $USERARG csl /bin/bash -c "cd ~/ && git clone https://github.com/$dotfiles && dotfiles/setup.sh"
+docker exec -it $USERARG csl /bin/bash -c "cd ~/ && git clone https://github.com/$dotfiles && dotfiles/setup.sh sup"
 # docker exec -it $USERARG csl /bin/bash -c "cd ~/ && curl -fsSL https://code-server.dev/install.sh | sh"
 
 docker exec -it $USERARG csl /bin/bash
